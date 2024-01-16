@@ -10,6 +10,7 @@ const Player = (props) => {
       className={cx(styles.playerContainer, {
         [styles.notActive]: !isActive,
         [styles.active]: isActive,
+        
       })}
     >
       <ReactPlayer

@@ -5,7 +5,9 @@ import Player from "@/component/Player";
 import { useEffect } from "react";
 import usePlayer from "@/hooks/usePlayer";
 import styles from "@/styles/room.module.css";
+
 const Room = () => {
+
   const socket = useSocket();
   const { peer, myId } = usePeer();
   const { stream } = useMediaStream();
@@ -33,11 +35,13 @@ const Room = () => {
         }));
       });
     };
+
     socket.on("user-connected", handleUserConnected);
 
     return () => {
       socket.off("user-connected", handleUserConnected);
     };
+
   }, [peer, stream, socket, setPlayer]);
 
   useEffect(() => {
@@ -79,7 +83,7 @@ const Room = () => {
 
   return (
     <>
-      <div>
+      <div className={styles.activePlayerContainer}>
         {playerHighlighted && (
           <Player
             url={playerHighlighted.url}
@@ -90,7 +94,7 @@ const Room = () => {
         )}
       </div>
 
-      <div>
+      <div className={styles.inActivePlayerContainer}>
         {Object.keys(nonHighlighted).map((playerId) => {
           const { url, muted, playing } = nonHighlighted[playerId];
           return (

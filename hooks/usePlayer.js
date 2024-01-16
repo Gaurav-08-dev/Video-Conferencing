@@ -10,9 +10,9 @@ const usePlayer = (myId) =>{
     const playerHighlighted = playerCopy[myId]
     delete playerCopy[myId]
 
-    const nonHighlighted = playerCopy
+    const nonHighlighted = playerCopy;
 
-    return {player,setPlayer, playerHighlighted,nonHighlighted};
+    return {player, setPlayer, playerHighlighted, nonHighlighted};
 
 }
 
