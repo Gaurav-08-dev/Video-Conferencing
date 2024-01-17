@@ -4,15 +4,16 @@ import { useRouter } from "next/router";
 const { useState, useEffect, useRef } = require("react");
 
 const usePeer = () => {
+
     const socket = useSocket();
     const roomId = useRouter().query.roomId;
     const [peer,setPeer] = useState(null);
     const [myId,setMyId] = useState(null);
-
     const isPeerSet = useRef(false);
 
     
     useEffect(() => {
+        
         if(isPeerSet.current || !roomId || !socket) return;
 
         isPeerSet.current=true;

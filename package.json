@@ -11,6 +11,7 @@
   "dependencies": {
     "classnames": "^2.5.1",
     "lodash": "^4.17.21",
+    "lucide-react": "^0.311.0",
     "next": "14.0.4",
     "peer": "^1.0.2",
     "peerjs": "^1.5.2",
