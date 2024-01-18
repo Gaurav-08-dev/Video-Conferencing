@@ -8,6 +8,7 @@ import styles from "@/styles/room.module.css";
 import { useRouter } from "next/router";
 import Bottom from "@/component/Bottom";
 import { cloneDeep } from "lodash";
+import CopySection from "@/component/CopySection";
 
 const Room = () => {
   const socket = useSocket();
@@ -140,7 +141,7 @@ const Room = () => {
       socket.off("user-toggle-video", handleToggleVideo);
       socket.off("user-leave-room", handleUserLeave);
     };
-  }, [socket, setPlayer, users]);
+  }, [socket, setPlayer, users, player]);
 
   return (
     <>
@@ -169,6 +170,10 @@ const Room = () => {
           );
         })}
       </div>
+      
+      <CopySection
+        roomId={roomId}
+      />
       <Bottom
         muted={playerHighlighted?.muted}
         playing={playerHighlighted?.playing}
